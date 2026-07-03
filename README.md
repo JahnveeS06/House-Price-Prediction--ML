@@ -60,7 +60,7 @@ Correlation Heatmap
 
 Distribution of SalePrice
 
-![Distribution](plots/Distribution of SalePrice.png)
+![Distribution](plots/Distribution of Sale Price.png)
 
 ---
 
