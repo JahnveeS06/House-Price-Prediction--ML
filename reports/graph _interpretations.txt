@@ -1,0 +1,54 @@
+1. Distribution of Sale Price
+   The distribution of SalePrice is positively skewed, indicating that most houses are moderately priced while a
+   few luxury houses have much higher prices. The presence of high-priced outliers suggests that a logarithmic transformation
+   of the target variable may improve model performance.
+
+y = np.log1p(df["SalePrice"])
+df["SalePrice"] = np.log1p(df["SalePrice"])
+
+2. Missing Values in Each column
+   Several columns contain missing values. Features such as PoolQC, Alley, Fence, and FireplaceQu have a very high percentage of 
+   missing entries, which likely indicate the absence of those amenities rather than missing data. Columns like LotFrontage and 
+   Electrical have relatively few missing values and can be imputed using statistical methods such as the median or mode.
+
+| Column         | Decision                                                           |
+| -------------- | ------------------------------------------------------------------ |
+| PoolQC         | Fill with "None" or consider dropping due to very high missingness |
+| Alley          | Fill with "None"                                                   |
+| Fence          | Fill with "None"                                                   |
+| FireplaceQu    | Fill with "None"                                                   |
+| Garage columns | Fill with "None" (categorical) or 0 (numeric, if appropriate)      |
+| LotFrontage    | Fill with median (possibly by neighborhood)                        |
+| Electrical     | Fill with mode                                                     |
+
+3. Correlation Heatmap(not much usefull)
+   The correlation heatmap shows several strong positive relationships among numerical features. OverallQual, GrLivArea, GarageCars, 
+   GarageArea, and TotalBsmtSF are strongly correlated with SalePrice, indicating that they are likely to be important predictors. 
+   Some predictor variables, such as GarageCars and GarageArea, are also highly correlated with each other, suggesting potential 
+   multicollinearity.
+
+4. Top 10 Correlated Features
+   OverallQual has the strongest correlation with SalePrice, followed by GrLivArea, GarageCars, GarageArea, and TotalBsmtSF. 
+   These features are likely to contribute significantly to predicting house prices and should be retained during model training.
+
+5. LivArea vs SalePrice
+   There is a strong positive relationship between GrLivArea and SalePrice, indicating that larger houses generally sell 
+   for higher prices. However, a few extremely large houses are sold at unexpectedly low prices, making them potential outliers 
+   that may negatively affect regression models.
+
+Outliers
+Living Area ≈ 4500–5600 sq ft
+Price ≈ 160k–190k
+
+These are unusually large houses sold at relatively low prices.
+These are famous outliers in the Ames dataset.
+Many Kaggle participants remove them.
+
+6. OverallQual vs SalePrice
+   Houses with higher overall quality consistently have higher sale prices. The median sale price increases steadily as 
+   the quality rating increases, indicating that OverallQual is one of the strongest predictors of house prices. Higher quality 
+   categories also show greater price variation.
+
+Outliers
+Every category has some expensive outliers.
+That's expected.

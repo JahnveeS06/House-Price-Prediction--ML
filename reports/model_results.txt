@@ -1,0 +1,47 @@
+MAE : 0.09169502204501444 -- Predictions are typically off by about 9%.
+
+RMSE: 0.13219799815444028 -- RMSE penalizes large mistakes more heavily than MAE.
+The fact that: RMSE (0.132) is not dramatically larger than MAE (0.092) -- suggests: The model does not make many extremely bad predictions.
+
+R² Score: 0.8963299440133154 -- The model explains 89.6% of the variance -- that means -- The model has figured out about 89.6% of the reasons why house prices differ.
+
+      Actual Price  Predicted Price
+
+1320 190000.0 223812.285926
+836 100000.0 99390.621795
+413 115000.0 101008.464822
+522 159000.0 166576.870747
+1035 315500.0 295859.928106
+614 137500.0 143909.933009
+218 311500.0 241838.416738
+1031 310000.0 319170.233693
+1288 281000.0 295906.345125
+886 135500.0 142953.768303
+
+A few large errors -- larger errors usually occur for houses with unusual combinations of features.
+
+Decision Tree
+------------------------------
+MAE : 0.1425
+RMSE: 0.2025
+R²  : 0.7567
+
+Random Forest
+------------------------------
+MAE : 0.0960
+RMSE: 0.1445
+R²  : 0.8762
+
+Gradient Boosting
+------------------------------
+MAE : 0.0872
+RMSE: 0.1257
+R²  : 0.9063
+
+XGBoost
+------------------------------
+MAE : 0.0953
+RMSE: 0.1433
+R²  : 0.8781
+
+Since Gradient Boosting has the highest R² it is the best model therefore saving only Gradient Boosting in models folder
