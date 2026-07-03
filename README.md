@@ -54,13 +54,14 @@ Key findings were documented before preprocessing.
 
 ## Sample Visualizations
 
+Distribution of SalePrice
+
+![Distribution](plots/Distribution%20of%20Sale%20Price.png)
+
 Correlation Heatmap
 
 ![Correlation Heatmap](plots/Correlation%20Heatmap.png)
 
-Distribution of SalePrice
-
-![Distribution](plots/Distribution%20of%20Sale%20Price.png)
 
 ---
 
